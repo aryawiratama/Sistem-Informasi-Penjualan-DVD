@@ -65,11 +65,14 @@
                                         <c:forEach items="${customers}" var="customer">
                                             <tr>
                                                 <td>${i}</td>
-                                                <td>${dvd.judul}</td>
-                                                <td>${dvd.description}</td>
-                                                <td>${dvd.category.name}</td>
-                                                <td><fmt:formatNumber value="${dvd.price}" currencySymbol="Rp. " type="currency"/></td>
-                                                <td><a href="controller?action=goupdate&id=${dvd.id}">Update</a></td>
+                                                <td>${customer.realname}</td>
+                                                <td>${customer.address1}</td>
+                                                <td>${customer.address2}</td>
+                                                <td>${customer.city}</td>
+                                                <td>${customer.state}</td>
+                                                <td>${customer.zip}</td>
+                                                <td>${customer.email}</td>
+                                                <td>${customer.phone}</td>
                                             </tr>
                                             <c:set var="i" value="${i+1}"/>
                                         </c:forEach>
