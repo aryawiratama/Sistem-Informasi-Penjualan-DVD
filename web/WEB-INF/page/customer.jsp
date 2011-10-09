@@ -62,7 +62,7 @@
                                             <td>Phone</td>
                                         </tr>
                                         <c:set var="i" value="1"/>
-                                        <c:forEach items="${dvds}" var="dvd">
+                                        <c:forEach items="${customers}" var="customer">
                                             <tr>
                                                 <td>${i}</td>
                                                 <td>${dvd.judul}</td>
