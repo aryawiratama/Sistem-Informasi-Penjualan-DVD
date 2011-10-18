@@ -25,7 +25,7 @@
                     <td>
                         <table width="100%" bgcolor="black" cellpadding="2" cellspacing="2" border="0">
                             <tr>
-                                <td><font color="white"><a href="controller?action=home">Home</a> | <a href="controller?action=gocategory">Category</a> | <a href="controller?action=godvd">Data DVD</a> | <a href="controller?action=gocustomer">Customer</a> | <a href="controller?action=loginadmin">${status}</a></font></td>
+                                <td><font color="white"><a href="controller?action=home">Home</a> | <a href="controller?action=goReg">Registration</a> | <a href="controller?action=view">Your Cart</a> | <a href="controller?action=loginadmin">${status}</a></font></td>
                             </tr>
                         </table>
                     </td>
