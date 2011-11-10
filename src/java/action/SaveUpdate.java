@@ -56,7 +56,7 @@ private static org.apache.log4j.Logger logger;
             log = "Update DVD Description From " + old.getDescription() + " to " + dvd.getDescription();
         }else if (old.getPrice()!=dvd.getPrice()){
             log = "Update DVD Price From " + old.getPrice() + " to " + dvd.getPrice();
-        }else if (!old.getJudul().equalsIgnoreCase(dvd.getDescription())){
+        }else if (!old.getJudul().equalsIgnoreCase(dvd.getJudul())){
             log = "Update DVD Tittle From " + old.getJudul() + " to " + dvd.getJudul();
         }else if (old.getCategory().getName().equalsIgnoreCase(dvd.getCategory().getName())){
             log = "Update DVD Category From " + old.getCategory().getName() + " to " + dvd.getCategory().getName();
