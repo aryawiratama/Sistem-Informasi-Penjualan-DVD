@@ -5,7 +5,6 @@
 
 package action;
 
-import com.sun.xml.internal.messaging.saaj.soap.ver1_1.Detail1_1Impl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;

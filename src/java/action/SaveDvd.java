@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import model.Category;
 import model.DVD;
+import org.apache.log4j.PropertyConfigurator;
 import util.Koneksi;
 
 /**
@@ -19,8 +20,10 @@ import util.Koneksi;
  * @author bandenk
  */
 public class SaveDvd implements ActionInterface{
-
+private static org.apache.log4j.Logger logger;
     public String execute(HttpServletRequest request) {
+        PropertyConfigurator.configure(this.getClass().getClassLoader().getResource("log4j.properties"));
+        logger = org.apache.log4j.Logger.getLogger(SaveDvd.class.getPackage().getName());
         Long id = Long.parseLong(request.getParameter("category"));
         DVD dvd = new DVD();
         List<Category> categories = new ArrayList<Category>();
@@ -33,6 +36,7 @@ public class SaveDvd implements ActionInterface{
             dvd.setCategory(Koneksi.getCategoryDao().getId(id));
             Koneksi.getdVDDao().insert(dvd);
             dvds = Koneksi.getdVDDao().readAll();
+            logger.info("Add New DVD : " + dvd.getJudul());
         } catch (Exception ex) {
             Logger.getLogger(SaveDvd.class.getName()).log(Level.SEVERE, null, ex);
         }

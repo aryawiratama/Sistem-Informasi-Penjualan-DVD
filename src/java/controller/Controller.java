@@ -23,8 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  * @author bandenk
  */
 public class Controller extends HttpServlet {
-Properties properties;
-RequestDispatcher dispatchers;
+private Properties properties;
+private RequestDispatcher dispatchers;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -59,6 +59,7 @@ RequestDispatcher dispatchers;
             if (!page.contains("controller")){
                 page = "WEB-INF/page/" + page;
             }
+            request.setAttribute("page", page);
             dispatchers = request.getRequestDispatcher(page);
             dispatchers.forward(request, response);
         }

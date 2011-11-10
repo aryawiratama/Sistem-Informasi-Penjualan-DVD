@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 import model.Category;
 import model.Customer;
 import model.Order;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import util.Koneksi;
 
 /**
@@ -19,7 +21,7 @@ import util.Koneksi;
  * @author bandenk
  */
 public class LoginUser implements ActionInterface{
-
+private static Logger logger;
     public String execute(HttpServletRequest request) {
         String user = request.getParameter("username");
         String password = request.getParameter("password");
@@ -37,6 +39,7 @@ public class LoginUser implements ActionInterface{
                     session.removeAttribute("cart");
                     Koneksi.getOrderDao().insert(order);
                     page = "controller?action=home";
+                    logger.info("User " + customer.getUsername() + " Do a Transaction");
                 }else{
                     request.setAttribute("msg", "User Name Or password is Invalid");
                     page = "controller?action=login";

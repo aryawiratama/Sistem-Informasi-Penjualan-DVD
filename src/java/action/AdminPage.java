@@ -8,13 +8,13 @@ package action;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import model.Category;
 import model.Customer;
 import model.DVD;
-import sun.java2d.loops.CustomComponent;
+import java.util.logging.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import util.Koneksi;
 
 /**
@@ -22,8 +22,10 @@ import util.Koneksi;
  * @author bandenk
  */
 public class AdminPage implements ActionInterface{
-
+private static org.apache.log4j.Logger logger;
     public String execute(HttpServletRequest request) {
+        PropertyConfigurator.configure(this.getClass().getClassLoader().getResource("log4j.properties"));
+        logger = org.apache.log4j.Logger.getLogger(AdminPage.class.getPackage().getName());
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         List<Category> categories = new ArrayList<Category>();
@@ -37,6 +39,7 @@ public class AdminPage implements ActionInterface{
                 request.setAttribute("status", "Logout");
                 session.setAttribute("admin", customer);
                 page = "admin.jsp";
+                logger.info("Admin Login");
             }else{
                 request.setAttribute("msg", "Password is Invalid");
                 page = "controller?action=home";
